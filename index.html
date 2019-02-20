@@ -179,7 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、创建github账户"><a href="#一、创建github账户" class="headerlink" title="一、创建github账户"></a>一、创建github账户</h3><p>github官网：<a href="https://github.com" target="_blank" rel="noopener">github</a></p>
+        <p>这是一个用来测试的帖～</p>
+<h3 id="一、创建github账户"><a href="#一、创建github账户" class="headerlink" title="一、创建github账户"></a>一、创建github账户</h3><p>github官网：<a href="https://github.com" target="_blank" rel="noopener">github</a></p>
 <h3 id="二、安装github客户端（mac自带）"><a href="#二、安装github客户端（mac自带）" class="headerlink" title="二、安装github客户端（mac自带）"></a>二、安装github客户端（mac自带）</h3><h3 id="三、创建ssh"><a href="#三、创建ssh" class="headerlink" title="三、创建ssh"></a>三、创建ssh</h3><p>1、查看是否存在ssh<br>  <code>cd ~/.ssh</code><br>   若存在，则使用已有的，若不存在，则通过默认的参数生成ssh<br>2、生成密钥<br>  <code>ssh-keygen -t rsa -C 18811538591@163.com</code><br>  邮箱即为注册时使用的邮箱<br>  若显示如下图，则密钥已成功生成<br>  <img src="evernotecid://7A5F11DF-D2E9-4763-BA6F-69BC4A03274E/appyinxiangcom/494395/ENResource/p877" alt="9aee31dff0c877b94db5a016a3025435.png"> </p>
 <h3 id="四、使用密钥连接github"><a href="#四、使用密钥连接github" class="headerlink" title="四、使用密钥连接github"></a>四、使用密钥连接github</h3><p>1、登陆github，选择Account Settings–&gt;SSH  Keys 添加ssh</p>
 <p>Title：<a href="mailto:18811538591@163.com" target="_blank" rel="noopener">18811538591@163.com</a><br>Key：打开生成的id_rsa.pub文件，将其中内容拷贝至此<br><img src="evernotecid://7A5F11DF-D2E9-4763-BA6F-69BC4A03274E/appyinxiangcom/494395/ENResource/p878" alt="28895ca8e32bc4acaaeb0b5a279b942d.png"><br>2、验证<br><code>ssh -T git@github.com</code><br>若显示如下图，则成功<br><img src="evernotecid://7A5F11DF-D2E9-4763-BA6F-69BC4A03274E/appyinxiangcom/494395/ENResource/p879" alt="1f41c3dc546ed9ae05b877b74e62ee7b.png"></p>

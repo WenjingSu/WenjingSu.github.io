@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: test | WenjingSu</title>
+  <title>DeepSTCL | WenjingSu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Record some of the research literature that has been read">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WenjingSu">
-<meta property="og:url" content="http://yoursite.com/tags/test/index.html">
+  <meta name="description" content="DeepSTCL：A Deep Spatio-temporal ConvLSTM for Travel Demand Prediction">
+<meta name="keywords" content="论文阅读笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepSTCL">
+<meta property="og:url" content="http://yoursite.com/2019/03/06/DeepSTCL/index.html">
 <meta property="og:site_name" content="WenjingSu">
-<meta property="og:description" content="Record some of the research literature that has been read">
+<meta property="og:description" content="DeepSTCL：A Deep Spatio-temporal ConvLSTM for Travel Demand Prediction">
 <meta property="og:locale" content="Chinese&English">
+<meta property="og:image" content="http://yoursite.com/2019/03/06/DeepSTCL/01.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/06/DeepSTCL/02.png">
+<meta property="og:updated_time" content="2019-03-06T04:11:15.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WenjingSu">
-<meta name="twitter:description" content="Record some of the research literature that has been read">
+<meta name="twitter:title" content="DeepSTCL">
+<meta name="twitter:description" content="DeepSTCL：A Deep Spatio-temporal ConvLSTM for Travel Demand Prediction">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/06/DeepSTCL/01.png">
   
     <link rel="alternative" href="/atom.xml" title="WenjingSu" type="application/atom+xml">
   
@@ -157,60 +162,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-DeepSTCL" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/20/test02/" class="archive-article-date">
-  	<time datetime="2019-02-20T11:19:53.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/20/test02/">github上传项目</a>
+    <h1 class="article-title" itemprop="name">
+      DeepSTCL
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/06/DeepSTCL/" class="archive-article-date">
+  	<time datetime="2019-03-06T04:08:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DeepSTCL：A Deep Spatio-temporal ConvLSTM for Travel Demand Prediction<br><a id="more"></a></p>
+<h5 id="深层时空ConvLSTM对于交通需求的预测"><a href="#深层时空ConvLSTM对于交通需求的预测" class="headerlink" title="深层时空ConvLSTM对于交通需求的预测"></a>深层时空ConvLSTM对于交通需求的预测</h5><h6 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h6><p>众所周知，整合交通资源是是城市智能化的一部分，DIDI等出行方式便捷了人们的生活，而DIDI的订单数据则能反映人们的交通需求，因此本文基于成都DIDI后台的真实数据，去做了交通需求的预测<br>在之前交通需求的预测主要是使用一些传统方法，例如ARIMA等，近年来有些研究将深度学习引入，然而却只单独考虑时间只考虑或空间去做预测，而本文提出的模型能够同时捕捉时间和空间的依赖性。<br>这个模型分为三个组件，分别是clossness，period,trend，它们具有相同的网络结构，最后做了线性融合。</p>
+<h6 id="贡献："><a href="#贡献：" class="headerlink" title="贡献："></a>贡献：</h6><p>1、提出了DeepSTCL模型，充分考虑了数据的时空特征，模型具有很好的性能<br>2、将结果可视化，并将预测结果与真实结果做对比，可以清晰看到预测的效果<br>3、考虑了对于地区划分不同大小的网格对于精确性和时间的影响</p>
+<h6 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h6><p>1、定义一：地理矩形块<br>首先把一个地理区域划分为n×n的矩形块，某一个块内的交通需求就不仅只与本地相关，还和其相邻的地区有关，这体现了数据的空间性<br>2、定义二：这是对于交通需求的定义：<br><img src="/2019/03/06/DeepSTCL/01.png" alt><br>简而言之就是将地区划分成网格，每一个网格对于滴滴订单做一个统计，构造出一个矩阵，沿着时间轴，可以生成k个这样的矩阵，因此输入就变成了m <em> n </em> k维<br>3、问题描述：<br>给定前k个这样的历史记录，去预测未来的t个交通需求</p>
+<h6 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h6><p><img src="/2019/03/06/DeepSTCL/02.png" alt><br>基于交通需求预测，本文构建了三个模型来进行实验，第一个就是本文提出的Deep Spatial-Temporal Convolutional LSTM Network，另外两个是做交通需求预测的baselines：CNN和LSTM</p>
+<p>1、Deep Spatial-Temporal Convolutional LSTM Network的网络结构由三部分组成，分别是closeness，period,和trend。</p>
+<p>拿closeness来看，首先构建了有关于交通需求的网格图，沿着时间轴形成多个这样的块。</p>
+<p>实际上，这里的每一个网格图都是一张图像，交通需求可以看作是视频流的预测，那么首先将这些视频流放入到convLSTM网络当中，然后经过正则化处理放入到3D卷积层，最后得到预测结果。</p>
+<p>period和trend具有相同的结构。最后做了一个加权融合。</p>
+<p>那么那么convLSTM是什么呢？实际上，convLSTM是在另一篇文章中被提出：Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting[NIPS 2015]<br>这篇文章提出了ConvLSTM，并将其用于降水量的预测，即根据雷达云层图来预测未来云层的变化</p>
+<p>从LSTM–&gt;FC-LSTM–&gt;ConvLSTM有一个变化的过程：<br>原生LSTM：<br>FC-LSTM：<br>ConvLSTM：</p>
+<p>2、CNN对交通需求的预测<br>3、LSTM对交通需求的预测</p>
+<h6 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h6>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">论文阅读笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/06/DeepSTCL/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/02/20/test02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">github上传项目</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -233,9 +366,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

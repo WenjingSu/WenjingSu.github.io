@@ -18,7 +18,7 @@
 <meta property="og:locale" content="Chinese&English">
 <meta property="og:image" content="http://yoursite.com/2019/03/06/DeepSTCL/01.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/06/DeepSTCL/02.png">
-<meta property="og:updated_time" content="2019-03-06T04:11:15.138Z">
+<meta property="og:updated_time" content="2019-03-07T13:18:40.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DeepSTCL">
 <meta name="twitter:description" content="DeepSTCL：A Deep Spatio-temporal ConvLSTM for Travel Demand Prediction">
@@ -192,9 +192,12 @@
 <p>实际上，这里的每一个网格图都是一张图像，交通需求可以看作是视频流的预测，那么首先将这些视频流放入到convLSTM网络当中，然后经过正则化处理放入到3D卷积层，最后得到预测结果。</p>
 <p>period和trend具有相同的结构。最后做了一个加权融合。</p>
 <p>那么那么convLSTM是什么呢？实际上，convLSTM是在另一篇文章中被提出：Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting[NIPS 2015]<br>这篇文章提出了ConvLSTM，并将其用于降水量的预测，即根据雷达云层图来预测未来云层的变化</p>
-<p>从LSTM–&gt;FC-LSTM–&gt;ConvLSTM有一个变化的过程：<br>原生LSTM：<br>FC-LSTM：<br>ConvLSTM：</p>
+<p>从LSTM–&gt;FC-LSTM–&gt;ConvLSTM有一个变化的过程：<br>原生LSTM：从最原始的LSTM说起。LSTM是对RNN的改进，主要是为了解决长序列训练过程中的梯度消失和梯度爆炸问题，能够在更长的序列中有更好的表现。<br>这张图表示了LSTM的结构，LSTM有三个门：遗忘门，输入门，输出门。</p>
+<p>FC-LSTM：<br>对于降水量预测的文章是在FC-LSTM的基础上做改进提出了ConvLSTM<br>文章里提到，FC-LSTM实际上可以看作是LSTM的多元版，即输入、输出、记忆单元这些状态可以看作是多维的向量</p>
+<p>ConvLSTM：<br>然而FC-LSTM并不能提取到空间特征。Conv是对FC-LSTM的一个改变。ConvLSTM设计了卷积层。<br>将这一时刻输入kai，记忆单元c，上一时刻输入h，以及输入门、输出门、遗忘门都设计成三维张量，其中后两维表示空间维度<br>其中*表示卷积，。表示hadamard积</p>
 <p>2、CNN对交通需求的预测<br>3、LSTM对交通需求的预测</p>
-<h6 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h6>
+<h6 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h6><p>实验内容较简单，下次实验的时候再补上叭</p>
+
       
 
       
